@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --beige-light: #faf8f5;
+  --beige: #f0ebe3;
+  --beige-dark: #d4c5a0;
+  --brown-light: #a0866f;
+  --brown: #7a6550;
+  --brown-dark: #5a4a3a;
+  --text-dark: #2d2520;
+  --text-light: #6b5d52;
+  --accent: #9b8568;
+  --white: #ffffff;
+  --success: #7a9b76;
+  --error: #c67b6b;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--beige-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-light) 100%);
+  color: var(--white);
+  padding: 80px 0 64px;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+  margin: 0 16px;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  animation: headerSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+}
+
+header .container {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes headerSlideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  opacity: 0.92;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Hero Section */
+.hero {
+  background-color: var(--white);
+  padding: 48px 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-family: 'Lora', serif;
+  font-size: 2.25rem;
+  color: var(--brown-dark);
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.book-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 56px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.book-images::before {
+  content: '';
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--brown-light), transparent);
+  border-radius: 2px;
+}
+
+.book-img {
+  width: 260px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.book-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+}
+
+.book-img:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+}
+
+/* Sections */
+.section {
+  padding: 48px 0;
+}
+
+.section:nth-child(even) {
+  background-color: var(--beige);
+}
+
+.section h2 {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  color: var(--brown-dark);
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.section h3 {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  color: var(--brown);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.section p,
+.section ul {
+  font-size: 1.0625rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.section ul li {
+  padding: 8px 0;
+  padding-left: 32px;
+  position: relative;
+}
+
+.section ul li::before {
+  content: '📖';
+  position: absolute;
+  left: 0;
+}
+
+/* Aanmeldingsblok */
+#aanmelden .container {
+  background-color: var(--white);
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#aanmelden a {
+  color: var(--brown-dark);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+#aanmelden ul li::before {
+  content: "✉️";
+}
+
+/* Contact Section */
+.contact-box {
+  background-color: var(--white);
+  padding: 32px;
+  border-radius: 12px;
+  border-left: 4px solid var(--brown-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-box a {
+  color: var(--brown-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-box a:hover {
+  color: var(--brown);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown) 100%);
+  color: var(--white);
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 32px;
+}
+
+footer p {
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .hero h2,
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .section h3 {
+    font-size: 1.25rem;
+  }
+
+  .hero,
+  .section {
+    padding: 40px 0;
+  }
+
+  .form-section {
+    padding: 24px;
+  }
+
+  .book-images {
+    gap: 12px;
+  }
+
+  .book-img {
+    width: 140px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .book-img {
+    width: 120px;
+    height: 170px;
+  }
+}
